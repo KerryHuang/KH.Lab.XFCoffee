@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" prism:ViewModelLocator.AutowireViewModel="True" x:Class="XFCoffee.Views.BusinessSpaceDetailPage" Title="咖啡廳明細">
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<OnPlatform x:Key="標題大小" x:TypeArguments="x:Double" iOS="18" Android="18" WinPhone="18" />
+			<x:Double x:Key="標題大小1">18</x:Double>
+			<Thickness x:Key="項目距離">0,20,0,0</Thickness>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+	<ContentPage.ToolbarItems>
+		<!--<ToolbarItem Command="{Binding GetMyMapCommand}" Text="我的位置" Order="Secondary" Priority="0" />-->
+		<ToolbarItem Command="{Binding GetMapCommand}" Text="查看地圖" Order="Secondary" Priority="0" />
+		<ToolbarItem Command="{Binding CallCommand}" Text="撥打電話" Order="Secondary" Priority="0" />
+		<ToolbarItem Command="{Binding SendMessageCommand}" Text="發送簡訊" Order="Secondary" Priority="0" />
+		<ToolbarItem Command="{Binding SendMailCommand}" Text="發送郵件" Order="Secondary" Priority="0" />
+		<!--<ToolbarItem Command="{Binding ShareContentCommand}" Text="分享內容" Order="Secondary" Priority="0" />-->
+		<ToolbarItem Command="{Binding ShareLinkCommand}" Text="分享連結" Order="Secondary" Priority="0" />
+		<ToolbarItem Command="{Binding GetUrlCommand}" Text="查看官網" Order="Secondary" Priority="0" />
+	</ContentPage.ToolbarItems>
+	<ScrollView Orientation="Vertical">
+		<StackLayout Orientation="Vertical" Margin="20,0">
+			<Image Margin="0,20,0,20">
+				<Image.Source>
+					<OnPlatform x:TypeArguments="ImageSource" iOS="info.png" Android="info.png" WinPhone="Assets/info.png" />
+				</Image.Source>
+			</Image>
+			<Label Text="咖啡廳名稱" VerticalOptions="Center" HorizontalOptions="Start" FontSize="{Binding Source={StaticResource 標題大小}}" />
+			<Label Text="{Binding CoffeeDetailViewModel.Name}" VerticalOptions="Center" HorizontalOptions="Start" />
+			<Label Text="城市" VerticalOptions="Center" HorizontalOptions="Start" FontSize="{Binding Source={StaticResource 標題大小}}" Margin="{Binding Source={StaticResource 項目距離}}" />
+			<Label Text="{Binding CoffeeDetailViewModel.City}" VerticalOptions="Center" HorizontalOptions="Start" />
+			<Label Text="座標經緯度" VerticalOptions="Center" HorizontalOptions="Start" FontSize="{Binding Source={StaticResource 標題大小}}" Margin="{Binding Source={StaticResource 項目距離}}" />
+			<Label Text="{Binding CoffeeDetailViewModel.Longitude, StringFormat='經度: {0}'}" VerticalOptions="Center" HorizontalOptions="Start" />
+			<Label Text="{Binding CoffeeDetailViewModel.Latitude, StringFormat='緯度: {0}'}" VerticalOptions="Center" HorizontalOptions="Start" />
+			<Label Text="官網" VerticalOptions="Center" HorizontalOptions="Start" FontSize="{Binding Source={StaticResource 標題大小}}" Margin="{Binding Source={StaticResource 項目距離}}" />
+			<Label Text="{Binding CoffeeDetailViewModel.Url}" VerticalOptions="Center" HorizontalOptions="Start" />
+			<Label Text="地址" VerticalOptions="Center" HorizontalOptions="Start" FontSize="{Binding Source={StaticResource 標題大小}}" Margin="{Binding Source={StaticResource 項目距離}}" />
+			<Label Text="{Binding CoffeeDetailViewModel.Address}" VerticalOptions="Center" HorizontalOptions="Start" />
+			<Label Text="有無限時" VerticalOptions="Center" HorizontalOptions="Start" FontSize="{Binding Source={StaticResource 標題大小}}" Margin="{Binding Source={StaticResource 項目距離}}" />
+			<Label Text="{Binding CoffeeDetailViewModel.Limited_Time}" VerticalOptions="Center" HorizontalOptions="Start" />
+			<Label Text="插座多" VerticalOptions="Center" HorizontalOptions="Start" FontSize="{Binding Source={StaticResource 標題大小}}" Margin="{Binding Source={StaticResource 項目距離}}" />
+			<Label Text="{Binding CoffeeDetailViewModel.Socket}" VerticalOptions="Center" HorizontalOptions="Start" />
+			<Label Text="可站立可作" VerticalOptions="Center" HorizontalOptions="Start" FontSize="{Binding Source={StaticResource 標題大小}}" Margin="{Binding Source={StaticResource 項目距離}}" />
+			<Label Text="{Binding CoffeeDetailViewModel.Standing_Desk}" VerticalOptions="Center" HorizontalOptions="Start" />
+			<Label Text="捷運站" VerticalOptions="Center" HorizontalOptions="Start" FontSize="{Binding Source={StaticResource 標題大小}}" Margin="{Binding Source={StaticResource 項目距離}}" />
+			<Label Text="{Binding CoffeeDetailViewModel.MRT}" VerticalOptions="Center" HorizontalOptions="Start" />
+			<Label Text="營業時間" VerticalOptions="Center" HorizontalOptions="Start" FontSize="{Binding Source={StaticResource 標題大小}}" Margin="{Binding Source={StaticResource 項目距離}}" />
+			<Label Text="{Binding CoffeeDetailViewModel.Open_Time}" VerticalOptions="Center" HorizontalOptions="Start" />
+			<Label Text="空間資訊" VerticalOptions="Center" HorizontalOptions="Start" FontSize="{Binding Source={StaticResource 標題大小}}" Margin="{Binding Source={StaticResource 項目距離}}" />
+			<Button Text="查看 空間資訊" Command="{Binding GetInfoCommand}" />
+			<Label Text="優惠資訊" VerticalOptions="Center" HorizontalOptions="Start" FontSize="{Binding Source={StaticResource 標題大小}}" Margin="{Binding Source={StaticResource 項目距離}}" />
+			<Button Text="查看 優惠資訊" Command="{Binding GetOfferCommand}" />
+			<Label Text="Wifi穩定" VerticalOptions="Center" HorizontalOptions="Start" FontSize="{Binding Source={StaticResource 標題大小}}" Margin="{Binding Source={StaticResource 項目距離}}" />
+			<Label Text="{Binding CoffeeDetailViewModel.WifiStar}" VerticalOptions="Center" HorizontalOptions="Start" />
+			<Label Text="通常有位" VerticalOptions="Center" HorizontalOptions="Start" FontSize="{Binding Source={StaticResource 標題大小}}" Margin="{Binding Source={StaticResource 項目距離}}" />
+			<Label Text="{Binding CoffeeDetailViewModel.SeatStar}" VerticalOptions="Center" HorizontalOptions="Start" />
+			<Label Text="安靜程度" VerticalOptions="Center" HorizontalOptions="Start" FontSize="{Binding Source={StaticResource 標題大小}}" Margin="{Binding Source={StaticResource 項目距離}}" />
+			<Label Text="{Binding CoffeeDetailViewModel.QuietStar}" VerticalOptions="Center" HorizontalOptions="Start" />
+			<Label Text="咖啡好喝" VerticalOptions="Center" HorizontalOptions="Start" FontSize="{Binding Source={StaticResource 標題大小}}" Margin="{Binding Source={StaticResource 項目距離}}" />
+			<Label Text="{Binding CoffeeDetailViewModel.TastyStar}" VerticalOptions="Center" HorizontalOptions="Start" />
+			<Label Text="價格便宜" VerticalOptions="Center" HorizontalOptions="Start" FontSize="{Binding Source={StaticResource 標題大小}}" Margin="{Binding Source={StaticResource 項目距離}}" />
+			<Label Text="{Binding CoffeeDetailViewModel.CheapStar}" VerticalOptions="Center" HorizontalOptions="Start" />
+			<Label Text="裝潢音樂" VerticalOptions="Center" HorizontalOptions="Start" FontSize="{Binding Source={StaticResource 標題大小}}" Margin="{Binding Source={StaticResource 項目距離}}" />
+			<Label Text="{Binding CoffeeDetailViewModel.MusicStar}" VerticalOptions="Center" HorizontalOptions="Start" />
+		</StackLayout>
+	</ScrollView>
+</ContentPage>
